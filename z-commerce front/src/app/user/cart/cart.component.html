@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+<div class="container mt-3">
+  <h1 class="text-center m-5 fs-2 fw-bolder heading">CART</h1>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 border-rounded">
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef class="text-center">Name </th>
+          <td mat-cell *matCellDef="let element" class="text-center"> {{element.name}} </td>
+        </ng-container>        
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef class="text-center">MRP</th>
+          <td mat-cell *matCellDef="let element" class="text-center"> {{element.price}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="totalprice">
+          <th mat-header-cell *matHeaderCellDef class="text-center fw-bold"> Total Price</th>
+          <td mat-cell *matCellDef="let element" class="text-center fw-bold">{{element.totalprice}}</td>
+        </ng-container>
+        <ng-container matColumnDef="viewbill">
+          <th class="text-center" mat-header-cell *matHeaderCellDef></th>
+            <td class="text-center" mat-cell *matCellDef="let element">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  View Bill
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5 fw-bolder" id="exampleModalLabel">BILL</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div >
+                        <table class="table table-borderless">
+                            <thead>
+                              <tr>
+                                <th scope="col" class="text-end">Product Name : </th>
+                                <th>{{element.name}}</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row" class="text-end">description : </th>
+                                <td>{{element.discription}}</td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="text-end">MRP : </th>
+                                <td>{{element.price}}</td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="text-end">Total price :(CGST(9%)+SGST(9%))</th>
+                                <td class="ms-auto">{{element.gstprice}}</td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="text-end">Discount(5%) : </th>
+                                <td> -{{element.discount}}</td>
+                              </tr>
+                              <tr>
+                                <th scope="row" class="text-end">Total Bill : </th>
+                                <td class="fs-4 fw-semibold">{{element.totalprice}}</td>
+                              </tr>
+                              <tr>
+
+                              </tr>
+                            </tbody>
+                          </table>
+                      </div>
+                      <div class="modal-footer m-auto">
+                        <button type="button" class="btn btn-warning " data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div></td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <th class="text-center" mat-header-cell *matHeaderCellDef></th>
+            <td class="text-center" mat-cell *matCellDef="let element"><button (click)="delete(element.name)" class="btn btn-danger">Delete from Cart</button></td>
+          </ng-container>      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</div>
