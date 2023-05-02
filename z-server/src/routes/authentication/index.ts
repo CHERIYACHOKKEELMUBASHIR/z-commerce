@@ -14,6 +14,8 @@ router.post('/login', (req: any, res: any, next: any) => {
                     message:"Login Success",
                     data:document
                 }
+                console.log("dafdghfasg",data);
+                
             res.json(login)
             }else{
                 const login={message:"Login failed"}

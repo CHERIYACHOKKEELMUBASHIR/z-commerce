@@ -34,7 +34,7 @@ router.put('/verify', (req: any, res: any, next: any) => {
         ProductModel.updateOne(
             { productname:item.productname},
             {
-                status:"verified"
+                status:"approved"
             }
         ).then((document) => {
             res.json(document);
@@ -43,5 +43,7 @@ router.put('/verify', (req: any, res: any, next: any) => {
         next(err);
     }
 })
+
+
 
 export default router;
