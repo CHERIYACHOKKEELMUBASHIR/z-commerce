@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class ProductViewComponent{
   data:any
-  type:any
+  // type:any
 
   constructor(private http:HttpClient){}
 

@@ -56,9 +56,10 @@
             <td> {{element.description}}</td>
             <td> {{element.category}}</td>
             <!-- <td> {{element.status}}</td> -->
-            <td><span *ngIf="type=='admin' && element.status!='verified' && element.status!='approved by admin'"><button (click)="approved(element.productname)" class="btn btn-primary">Approve</button></span><span *ngIf="type=='super' && element.status!='approved by admin'" style="color: blue;">{{element.status}}</span>
-                <span *ngIf="type=='super' && element.status!='pending' && element.status!='verified'"><button (click)="verify(element.productname)" class="btn btn-primary">Verify</button></span><span *ngIf="type=='admin' && element.status!='pending'" style="color: blue;">{{element.status}}</span></td>
-                <td></td>
+            <td><span *ngIf="type=='admin' && element.status!='approved' && element.status!='approved by admin'"><button (click)="approved(element.productname)" class="btn btn-primary">Approve</button></span><span *ngIf="type=='super' && element.status!='approved by admin'" style="color: red;">{{element.status}}</span>
+                <span *ngIf="type=='super' && element.status!='pending' && element.status!='approved'"><button (click)="verify(element.productname)" class="btn btn-primary">Verify</button></span><span *ngIf="type=='admin' && element.status!='pending'" style="color: red;">{{element.status}}</span></td>
+               
+                  
           </tr>
         </tbody>
       </table>

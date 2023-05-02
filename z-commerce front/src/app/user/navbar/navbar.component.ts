@@ -15,7 +15,7 @@ export class NavbarComponent {
     // this.type=JSON.parse(localStorage.getItem('type')||'')
   }
 logout(){
-    const logout=confirm('PRESS OK TO LOGOUT')
+    const logout=confirm('Are you sure want to logout')
       if(logout){
     localStorage.removeItem('username')
     this.rout.navigateByUrl('')
